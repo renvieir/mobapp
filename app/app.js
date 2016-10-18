@@ -10,6 +10,9 @@
         .when('/observacoes', {
             templateUrl: 'app/templates/pages/observacoes.html'
         })
+        .when('/test', {
+            templateUrl: 'test.html'
+        })
         ;
     });
 })();

@@ -2,8 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">mic</i>
-                <input id="mic_recorder" type="file" accept="audio/*" capture="microphone">
+                <div class="file-field input-field">
+                    <div class="waves-effect waves-light btn">
+                        <i class="material-icons left">mic</i>Audio
+                        <input id="mic_recorder" type="file" accept="audio/*" capture="microphone">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
             </div>
             <div class="col s12">
             
@@ -23,8 +30,15 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">photo_camera</i>
-                <input id="photo" type="file" accept="image/*"capture="camera">
+                <div class="file-field input-field">
+                    <div class="waves-effect waves-light btn">
+                        <i class="material-icons left">photo_camera</i>Foto
+                        <input id="photo" type="file" accept="image/*"capture="camera">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
             </div>
             <div class="col s12">
                 <img id="frame">
@@ -43,20 +57,26 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">videocam</i>
-                <input id="camcorder" type="file" accept="video/*" capture="camcorder">
+                <div class="file-field input-field">
+                    <div class="waves-effect waves-light btn">
+                        <i class="material-icons left">videocam</i>Video
+                        <input id="photo" type="file" accept="video/*"capture="camcorder">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
             </div>
             <div class="col s12">
-
-                <video id="video_player" autoplay="autoplay" controls="true"></video>
+                <video width=320 height=240 class="responsive-video" id="video_player" autoplay="autoplay" controls="true"></video>
                 <div class="buttons-wrapper">
-                    <button id="button-play-gum" class="button-demo" href="#">Play demo</button>
-                    <button id="button-stop-gum" class="button-demo" href="#">Stop demo</button>
+                    <button id="button-play-gum" class="btn" href="#">Start Camera</button>
+                    <button id="button-stop-gum" class="btn" href="#">Stop Camera</button>
+                    <button id="capture" class="btn">Capture</button>
                 </div>
             </div>
 
             <div class="col s12">
-                <button id="capture">Capture</button>
                 <canvas id="snapshot" width=320 height=240></canvas>                
             </div>
 <script>
@@ -89,7 +109,7 @@
     // Attach the video stream to the video element and autoplay.
     video_player.src = createSrc(stream);
     video_player.play();
-    videoTracks = stream.getVideoTracks();
+    videoTracks = stream.getTracks();
   };
 
   captureButton.addEventListener('click', function() {
