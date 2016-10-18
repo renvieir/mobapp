@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mic</i>
+                <input id="mic_recorder" type="file" accept="audio/*" capture="microphone">
+            </div>
+            <div class="col s12">
+            
+                <audio id="mic_player" controls autoplay></audio>
+                <script>
+                    var recorder = document.getElementById('mic_recorder');
+                    var mic_player = document.getElementById('mic_player')
+
+                    recorder.addEventListener('change', function(e) {
+                        var file = e.target.files[0]; 
+                        // Do something with the audio file.
+                        mic_player.src =  URL.createObjectURL(file);
+                    });
+
+                </script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">photo_camera</i>
+                <input id="photo" type="file" accept="image/*"capture="camera">
+            </div>
+            <div class="col s12">
+                <img id="frame">
+                <script>
+                    var photo_camera = document.getElementById('photo');
+                    var frame = document.getElementById('frame');
+
+                    photo_camera.addEventListener('change', function(e) {
+                        var file = e.target.files[0]; 
+                        // Do something with the audio file.
+                        frame.src = URL.createObjectURL(file);
+                    });
+                </script>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">videocam</i>
+                <input id="camcorder" type="file" accept="video/*" capture="camcorder">
+            </div>
+            <div class="col s12">
+
+                <video id="video_player" autoplay="autoplay" controls="true"></video>
+                <div class="buttons-wrapper">
+                    <button id="button-play-gum" class="button-demo" href="#">Play demo</button>
+                    <button id="button-stop-gum" class="button-demo" href="#">Stop demo</button>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <button id="capture">Capture</button>
+                <canvas id="snapshot" width=320 height=240></canvas>                
+            </div>
+<script>
+  var snapshotCanvas = document.getElementById('snapshot');
+  var captureButton = document.getElementById('capture');
+  var video_player = document.getElementById('video_player'); 
+  var videoTracks;
+  
+  var createSrc = window.URL ? window.URL.createObjectURL : function(stream) {return stream;};
+
+  document.getElementById('button-play-gum')
+    .addEventListener('click', 
+      function() {
+          // Capture user's audio and video source
+        navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true
+        }).then(handleSuccess);
+      });
+
+  document.getElementById('button-stop-gum').addEventListener('click', function() {
+    // Pause the video
+    video_player.pause();
+    video_player.src="";
+    // Stop all video streams.
+    videoTracks.forEach(function(track) { track.stop() });
+  });
+
+  var handleSuccess = function(stream) {
+    // Attach the video stream to the video element and autoplay.
+    video_player.src = createSrc(stream);
+    video_player.play();
+    videoTracks = stream.getVideoTracks();
+  };
+
+  captureButton.addEventListener('click', function() {
+    var context = snapshot.getContext('2d');
+    context.drawImage(video_player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+  });
+
+
+</script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+                <i class="large material-icons">add</i>
+            </a>
+            <ul>
+                <li id="fab_gallery"><a class="btn-floating red"><i class="material-icons">photo_library</i></a></li>
+                <li><a class="btn-floating yellow"><i class="material-icons">photo_camera</i></a></li>
+                <!-- <li><a class="btn-floating yellow darken-1"><i class="material-icons">videocam</i></a></li> -->
+                <li id="fab_mic"><a class="btn-floating green"><i class="material-icons">mic</i></a></li>
+                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            </ul>
+            <script>
+                    document.getElementById('fab_mic')
+                      .addEventListener('click', function(e) {
+                        $('#mic_recorder').trigger('click');
+                    });
+
+                    document.getElementById('fab_gallery')
+                      .addEventListener('click', function(e) {
+                        $('#photo').trigger('click');
+                    });
+                
+            </script>
+        </div>        
+    </div>
+    <script>
+        (function($){
+        $(function(){
+            // enable material select
+            $('select').material_select();
+
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });            
+
+            // enable char count on texarea with id='why'
+            $('input#input_text, textarea#why').characterCounter();
+        }); // end of document ready
+        })(jQuery); // end of jQuery name space        
+    </script>
+</div>
