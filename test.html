@@ -13,14 +13,14 @@
                 </div>
             </div>
             <div class="col s12">
-            
+
                 <audio id="mic_player" controls autoplay></audio>
                 <script>
                     var recorder = document.getElementById('mic_recorder');
                     var mic_player = document.getElementById('mic_player')
 
                     recorder.addEventListener('change', function(e) {
-                        var file = e.target.files[0]; 
+                        var file = e.target.files[0];
                         // Do something with the audio file.
                         mic_player.src =  URL.createObjectURL(file);
                     });
@@ -40,23 +40,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col s6">
+            <div class="col s12">
                 <img width=320 height=240 id="frame">
                 <script>
                     var photo_camera = document.getElementById('photo');
                     var frame = document.getElementById('frame');
 
                     photo_camera.addEventListener('change', function(e) {
-                        var file = e.target.files[0]; 
+                        var file = e.target.files[0];
                         // Do something with the audio file.
                         frame.src = URL.createObjectURL(file);
                     });
                 </script>
             </div>
-            <div class="col s6">
-                <canvas id="snapshot" width=320 height=240></canvas>                
-            </div>
-            
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -78,24 +74,27 @@
                     <button id="capture" class="btn">Capture</button>
                 </div>
             </div>
+            <div class="col s12">
+                <canvas id="snapshot" width=320 height=240></canvas>
+            </div>
             <script>
                 var video_camera = document.getElementById('video');
                 var snapshotCanvas = document.getElementById('snapshot');
                 var captureButton = document.getElementById('capture');
-                var video_player = document.getElementById('video_player'); 
+                var video_player = document.getElementById('video_player');
                 var videoTracks;
-                
+
                 var createSrc = window.URL ? window.URL.createObjectURL : function(stream) {return stream;};
 
                 video_camera.addEventListener('change', function(e) {
-                    var file = e.target.files[0]; 
+                    var file = e.target.files[0];
                     // Do something with the audio file.
                     console.log(file.name);
                     video_player.src = createSrc(file);
                 });
 
                 document.getElementById('button-play-gum')
-                    .addEventListener('click', 
+                    .addEventListener('click',
                     function() {
                         // Capture user's audio and video source
                         navigator.mediaDevices.getUserMedia({
@@ -150,7 +149,7 @@
                     .addEventListener('click', function(e) {
                     $('#photo').trigger('click');
                 });
-            
+
                 document.getElementById('fab_vid')
                     .addEventListener('click', function(e) {
                     $('#photo').trigger('click');
@@ -166,11 +165,11 @@
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15 // Creates a dropdown of 15 years to control year
-            });            
+            });
 
             // enable char count on texarea with id='why'
             $('input#input_text, textarea#why').characterCounter();
         }); // end of document ready
-        })(jQuery); // end of jQuery name space        
+        })(jQuery); // end of jQuery name space
     </script>
 </div>
