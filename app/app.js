@@ -10,8 +10,8 @@
         .when('/observacoes', {
             templateUrl: 'app/templates/pages/observacoes.html'
         })
-        .when('/test', {
-            templateUrl: 'test.html'
+        .when('/hardware', {
+            templateUrl: 'hardware.html'
         })
         .when('/charts', {
             templateUrl: 'charts.html'
