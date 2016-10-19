@@ -13,6 +13,9 @@
         .when('/test', {
             templateUrl: 'test.html'
         })
+        .when('/charts', {
+            templateUrl: 'charts.html'
+        })
         ;
     });
 

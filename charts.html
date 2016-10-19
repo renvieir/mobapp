@@ -1,0 +1,25 @@
+<div class="class="container"">
+    <div class="row" ng-controller="ChartController as chartCtrl">
+        <div class="input-field col s12">
+            <select ng-model="chartCtrl.chartType" ng-change="chartCtrl.changeChart()">
+                <option value="" disabled selected>Selecione o tipo de grafico</option>
+                <option value="line">Linha</option>
+                <option value="bar">Barra</option>
+                <option value="pie">Pizza</option>
+                <option value="radar">Radar</option>
+                <option value="polarArea">Polar Area</option>
+                <option value="pie">Pizza</option>
+                <option value="doughnut">Donut</option>
+            </select>
+            <label>Tipo de grafico</label>
+        </div>
+        <canvas id="myChart" width="240" height="240"></canvas>
+    </div>
+</div>
+<script>
+    (function($){
+        $(function(){
+            $('select').material_select();
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+</script>

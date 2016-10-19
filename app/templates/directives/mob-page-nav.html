@@ -10,6 +10,7 @@
             <li ng-class="{active: navCtrl.isThisNav(1)}"><a href="#observacoes" ng-click="navCtrl.setNav(1)">Observações</a></li>
             <li ng-class="{active: navCtrl.isThisNav(2)}"><a href="#sobre" ng-click="navCtrl.setNav(2)">Sobre</a></li>
             <li ng-class="{active: navCtrl.isThisNav(3)}"><a href="#test" ng-click="navCtrl.setNav(3)">Teste</a></li>
+            <li ng-class="{active: navCtrl.isThisNav(4)}"><a href="#charts" ng-click="navCtrl.setNav(3)">Charts</a></li>
         </ul>
 
         <!-- Mobile nav -->
@@ -23,14 +24,15 @@
             <li><a href="#observacoes">Observações</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#test">Teste</a></li>
+            <li><a href="#charts">Charts</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-                
+
         <!-- <ul id="nav-mobile" class="side-nav">
             <li><a href="#observacoes">Observações</a></li>
             <li><a href="#sobre">Sobre</a></li>
-        </ul> 
-        <a href data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>        
+        </ul>
+        <a href data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         -->
     </div>
     <script>
@@ -40,7 +42,7 @@
                 closeOnClick: true
             });
         }); // end of document ready
-        })(jQuery); // end of jQuery name space        
+        })(jQuery); // end of jQuery name space
     </script>
 </nav>
 
