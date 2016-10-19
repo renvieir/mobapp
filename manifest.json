@@ -1,0 +1,19 @@
+{
+  "short_name": "Mob App",
+  "name": "App do Método Billings",
+  "icons": [
+    {
+      "src": "img/flower.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/flower-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}
