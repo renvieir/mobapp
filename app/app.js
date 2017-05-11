@@ -10,12 +10,16 @@
         .when('/observacoes', {
             templateUrl: 'app/templates/pages/observacoes.html'
         })
-        .when('/hardware', {
+        /*.when('/hardware', {
             templateUrl: 'hardware.html'
         })
         .when('/charts', {
             templateUrl: 'charts.html'
+        })*/
+        .when('/jogo', {
+            templateUrl: 'app/templates/pages/game.html'
         })
+        .otherwise('/');
         ;
     });
 
