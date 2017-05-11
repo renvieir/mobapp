@@ -7,10 +7,7 @@
 
         <!-- Default nav -->
         <ul class="right hide-on-med-and-down">
-            <li ng-class="{active: navCtrl.isThisNav(1)}"><a href="#observacoes" ng-click="navCtrl.setNav(1)">Observações</a></li>
-            <li ng-class="{active: navCtrl.isThisNav(2)}"><a href="#sobre" ng-click="navCtrl.setNav(2)">Sobre</a></li>
-            <li ng-class="{active: navCtrl.isThisNav(3)}"><a href="#hardware" ng-click="navCtrl.setNav(3)">Hardware</a></li>
-            <li ng-class="{active: navCtrl.isThisNav(4)}"><a href="#charts" ng-click="navCtrl.setNav(4)">Charts</a></li>
+            <li ng-repeat="item in navCtrl.items"><a href="{{item.ref}}">{{item.name}}</a></li>
         </ul>
 
         <!-- Mobile nav -->
@@ -21,10 +18,8 @@
             <a href="#!name"><span class="white-text name">John Doe</span></a>
             <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
             </div></li>
-            <li><a href="#observacoes">Observações</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#hardware">Hardware</a></li>
-            <li><a href="#charts">Charts</a></li>
+            <li ng-repeat="item in navCtrl.items"><a href="{{item.ref}}">{{item.name}}</a></li>
+            <!--<li><a href="#charts">Charts</a></li>-->
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
