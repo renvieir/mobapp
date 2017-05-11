@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="ObservationFormController as obsFormCtrl">
     <ul class="collection with-header">
         <li class="collection-header"><h4> Observações </h4></li>
         <li class="collection-item avatar">
@@ -9,7 +9,7 @@
             </p>
            <div class="secondary-content">11/10/2016</div>
         </li>
-        <li class="collection-item avatar">
+        <li class="collection-item avatar" ng-repeat="observation in obsFormCtrl.observations">
             <img src="img/flower.png" alt="" class="circle">
            <span class="title">{{observation.sensation}}</span>
             <p>{{observation.mucus_quantity}} muco<br>
@@ -23,10 +23,10 @@
             <div class="card-content white-text">
                 <span class="card-title">Nova Observação</span>
                 <div class="row">
-                    <form class="col s12" ng-controller="ObservationFormController as obsFormCtrl" ng-submit="obsFormCtrl.addObservation()">
+                    <form class="col s12" ng-submit="obsFormCtrl.addObservation()">
                         <div class="input-field col s12">
-                            <select ng-model="observation.sensation">
-                                <option value="" disabled selected>Como Voce se Sente</option>
+                            <select ng-model="obsFormCtrl.observation.sensation">
+                                <option value="nenhum" disabled selected>Como Voce se Sente</option>
                                 <option value="seca">Seca</option>
                                 <option value="pegajosa">Pegajosa</option>
                                 <option value="molhada">Molhada</option>
@@ -35,8 +35,8 @@
                             <label class="white-text">Sensacao</label>
                         </div>
                         <div class="input-field col s12">
-                            <select ng-model="observation.mucus_quantity">
-                                <option value="" disabled selected>Voce ve algum muco?</option>
+                            <select ng-model="obsFormCtrl.observation.mucus_quantity">
+                                <option value="nenhum" disabled selected>Voce ve algum muco?</option>
                                 <option value="nenhum">Nenhum</option>
                                 <option value="pouco">Pouco</option>
                                 <option value="muito">Muito</option>
@@ -44,7 +44,7 @@
                             <label class="white-text">Quantidade de Muco</label>
                         </div>
                         <div class="input-field col s12">
-                            <select ng-model="observation.mucus_color">
+                            <select ng-model="obsFormCtrl.observation.mucus_color">
                                 <option value="" disabled selected>Qual a cor do muco?</option>
                                 <option value="transparente">Transparente</option>
                                 <option value="branco">Branco</option>
@@ -53,7 +53,7 @@
                             </select>
                             <label class="white-text">Cor do Muco</label>
                         </div>
-                        <button class="btn waves-effect waves-light red" type="submit" name="action">
+                        <button ng-disabled="obsFormCtrl.observation.sensation=='nenhum'" class="btn waves-effect waves-light red" type="submit" name="action">
                             Submit
                             <i class="material-icons right">send</i>
                         </button>
