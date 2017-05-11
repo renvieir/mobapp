@@ -1,5 +1,11 @@
-angular.module("MobApp")
-    .controller('ChartController', function(){
+(function(){
+    'use strict';
+
+    angular
+      .module("MobApp")
+      .controller('ChartController', ChartController);
+
+    function ChartController(){
         var ctx = document.getElementById("myChart");
         var data = {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -26,7 +32,7 @@ angular.module("MobApp")
                 }]
             };
 
-        this.chartType = "line";
+        this.chartType = "";
 
         this.changeChart = function(){
             console.log(this.chartType);
@@ -45,4 +51,5 @@ angular.module("MobApp")
             });
 
         };
-});
+    }
+})();

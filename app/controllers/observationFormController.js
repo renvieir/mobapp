@@ -1,6 +1,21 @@
-angular.module("MobApp").controller('ObservationFormController', function(){
-    this.observation = {}
-    this.addObservation = function(obs){
-        this.observation = obs;
+(function(){
+    'use strict';
+    angular
+      .module("MobApp")
+      .controller('ObservationFormController', ObservationFormController);
+
+    ObservationFormController.$inject = [];
+    function ObservationFormController(){
+        this.observation = {
+            sensation: 'nenhum',
+            mucus_quantity: 'nenhum',
+            mucus_color: ''
+        }
+        this.observations = [];
+        this.addObservation = function(){
+            var obs = this.observation;
+            console.log('oi', obs);
+            this.observations.push(angular.copy(obs));
+        };
     }
-});
+})();
