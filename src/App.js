@@ -1,6 +1,6 @@
-import React from 'react';
-import { Provider } from 'react-redux'
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { routesList } from './constants/routes';
 
 export default function App() {
   return (
@@ -14,25 +14,14 @@ export default function App() {
             <li>
               <Link to="/about">About</Link>
             </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            {routesList.map(route => <Route {...route} />)}
+          </Switch>
+        </Suspense>
       </div>
     </Router>
   );

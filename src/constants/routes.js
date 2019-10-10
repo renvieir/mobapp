@@ -5,7 +5,7 @@ const routes = {
     id: 'notes',
     path: '/',
     component: lazy(() => import('../routes/notes')),
-  }
+  },
 };
 
 export const routesList = Object.values(routes);
