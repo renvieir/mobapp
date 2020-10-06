@@ -12,10 +12,10 @@
         })
         /*.when('/hardware', {
             templateUrl: 'hardware.html'
-        })
+        })*/
         .when('/charts', {
             templateUrl: 'charts.html'
-        })*/
+        })
         .when('/jogo', {
             templateUrl: 'app/templates/pages/game.html'
         })
