@@ -31,9 +31,12 @@
                     borderWidth: 2
                 }]
             };
-        
-        this.chartType = "line";
-        var chart = new Chart(ctx, {
+
+        this.chartType = "";
+        var chart;
+        this.changeChart = function(){
+            if (chart) chart.destroy()
+            chart = new Chart(ctx, {
                 type: this.chartType,
                 data: data,
                 options: {
@@ -46,9 +49,6 @@
                     }
                 }
             });
-        this.changeChart = function(){
-            chart.type = this.chartType;
-            chart.update();
         };
     }
 })();

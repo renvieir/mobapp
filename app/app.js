@@ -14,7 +14,7 @@
             templateUrl: 'hardware.html'
         })*/
         .when('/charts', {
-            templateUrl: 'charts.html'
+            templateUrl: 'app/templates/pages/charts.html'
         })
         .when('/jogo', {
             templateUrl: 'app/templates/pages/game.html'
