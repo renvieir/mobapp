@@ -14,7 +14,6 @@
         this.observations = [];
         this.addObservation = function(){
             var obs = this.observation;
-            console.log('oi', obs);
             this.observations.push(angular.copy(obs));
         };
     }

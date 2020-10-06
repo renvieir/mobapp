@@ -20,6 +20,12 @@
                     ref: '#observacoes',
                     name: 'Observações'
                 },{
+                    ref: '#charts',
+                    name: 'Gráficos'
+                },{
+                    ref: '#hardware',
+                    name: 'Dispositivo'
+                },{
                     ref: '#jogo',
                     name: 'Jogo'
                 },{
